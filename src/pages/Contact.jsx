@@ -48,7 +48,7 @@ const Contact = () => {
                   <FaEnvelope className="text-2xl text-primary" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-600">info@kudsa.org</p>
+                    <p className="text-gray-600">kudsadeans@gmail.com</p>
                   </div>
                 </div>
 
