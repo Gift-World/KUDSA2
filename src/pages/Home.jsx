@@ -90,7 +90,7 @@ const Home = ({ setShowForm }) => {
 
       <About />
       <Membership />
-      {/* <Services /> */}
+      <Services />
     </div>
   );
 };
