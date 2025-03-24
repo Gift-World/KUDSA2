@@ -15,10 +15,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <p className="text-gray-300">Email: kudsadeans@gmail.com</p>
-            <p className="text-gray-300">Phone: +254 XXX XXX XXX</p>
+            <p className="text-gray-300">Phone: +254 718 614 091</p>
           </div>
           
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
               <a href="#" className="text-2xl hover:text-gray-300 transition-colors">
@@ -31,7 +31,7 @@ const Footer = () => {
                 <FaLinkedin />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
