@@ -56,7 +56,7 @@ const Contact = () => {
                   <FaPhone className="text-2xl text-primary" />
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-gray-600">+254 XXX XXX XXX</p>
+                    <p className="text-gray-600">+254 718 614 091</p>
                   </div>
                 </div>
 
