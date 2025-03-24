@@ -20,23 +20,17 @@ const InterestForm = ({ showForm, setShowForm }) => {
       `Email: ${formData.email}\n` +
       `Phone: ${formData.phone}\n\n` +
       `Message: ${formData.message}`
-      
     );
   
     const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=giftworld325@gmail.com&su=${subject}&body=${body}`;
     const mailtoLink = `mailto:giftworld325@gmail.com?subject=${subject}&body=${body}`;
-  
-    // Special link for Android (opens Gmail app directly)
     const gmailIntent = `intent://compose?to=giftworld325@gmail.com&subject=${subject}&body=${body}#Intent;scheme=mailto;package=com.google.android.gm;end;`;
   
     if (/Android/i.test(navigator.userAgent)) {
-      // Try opening Gmail app on Android
       window.location.href = gmailIntent;
     } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      // Try opening Gmail on iOS using the mailto link
       window.location.href = mailtoLink;
     } else {
-      // Try opening Gmail Web on desktop or fallback to mailto
       const newTab = window.open(gmailWebLink, "_blank");
       setTimeout(() => {
         if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
@@ -56,69 +50,74 @@ const InterestForm = ({ showForm, setShowForm }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          setShowForm(false);
+        }
+      }}
     >
       <motion.div
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.5, opacity: 0 }}
         transition={{ type: "spring", damping: 25 }}
-        className="bg-white rounded-lg p-8 max-w-md w-full"
+        className="bg-white rounded-lg p-8 max-w-md w-full relative"
       >
-        <h3 className="text-2xl font-bold mb-4">Join KUDSA</h3>
+        <h3 className="text-2xl font-bold mb-6 text-gray-800">Join KUDSA</h3>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1">Name</label>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Name</label>
             <input
               type="text"
-              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              className="w-full border rounded-md px-3 py-2 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Institution</label>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Institution</label>
             <input
               type="text"
-              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              className="w-full border rounded-md px-3 py-2 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               value={formData.institution}
               onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Email</label>
             <input
               type="email"
-              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              className="w-full border rounded-md px-3 py-2 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Phone</label>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Phone</label>
             <input
               type="tel"
-              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              className="w-full border rounded-md px-3 py-2 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Message</label>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Message</label>
             <textarea
-              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              className="w-full border rounded-md px-3 py-2 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               rows="4"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             ></textarea>
           </div>
-          <div className="flex justify-end space-x-4">
+          <div className="flex justify-end space-x-4 mt-6">
             <motion.button
               type="button"
               onClick={() => setShowForm(false)}
-              className="px-4 py-2 text-gray-600 hover:text-gray-800"
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -126,7 +125,7 @@ const InterestForm = ({ showForm, setShowForm }) => {
             </motion.button>
             <motion.button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600"
+              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
