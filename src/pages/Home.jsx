@@ -6,6 +6,8 @@ import Services from '../components/Services';
 import About2 from '../components/About2';
 import Stats from '../components/Stats';
 import Membership from '../components/Membership';
+import InterestForm from '../components/InterestForm';
+import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
@@ -25,7 +27,9 @@ const bannerImages = [
   },
 ];
 
-const Home = ({ setShowForm }) => {
+const Home = () => {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <div>
       <Swiper
@@ -87,12 +91,11 @@ const Home = ({ setShowForm }) => {
       </Swiper>
       <About2 />
       <Stats />
-
       <About />
       <Membership />
-      {/* <Services /> */}
+      <InterestForm showForm={showForm} setShowForm={setShowForm} />
     </div>
   );
 };
 
-export default Home
+export default Home;
