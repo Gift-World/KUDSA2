@@ -13,18 +13,18 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 
 const bannerImages = [
+  // {
+  //   url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1kQvucdrE0dRZAq-OiLBUGvmr_vZfuIlTwA&s',
+  //   title: 'Empowering Student Affairs',
+  // },
   {
-    url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: 'Empowering Student Affairs',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3',
+    url: 'https://hapakenya.com/wp-content/uploads/2013/05/Graduates.jpg',
     title: 'Building Tomorrow\'s Leaders',
   },
-  {
-    url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3',
-    title: 'Fostering Excellence',
-  },
+  // {
+  //   url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3',
+  //   title: 'Fostering Excellence',
+  // },
 ];
 
 const Home = () => {

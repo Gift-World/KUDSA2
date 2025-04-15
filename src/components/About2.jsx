@@ -60,7 +60,7 @@ The Kenya Universities Deans of Students Association (KUDSA) is a professional b
             className="relative"
           >
             <img 
-              src="https://pbs.twimg.com/media/DQ8DHNoW4AEAPAI?format=jpg&name=4096x4096"
+              src="https://i.imgur.com/kpepVGn.jpeg"
               alt="Professional training session"
               className="rounded-lg shadow-2xl"
             />
