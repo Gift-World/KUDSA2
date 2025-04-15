@@ -38,7 +38,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-        const response = await fetch('https://contact-backend-acbnode.onrender.com/send-email', {
+        const response = await fetch('#', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
