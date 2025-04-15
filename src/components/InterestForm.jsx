@@ -22,9 +22,9 @@ const InterestForm = ({ showForm, setShowForm }) => {
       `Message: ${formData.message}`
     );
   
-    const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=giftworld325@gmail.com&su=${subject}&body=${body}`;
-    const mailtoLink = `mailto:giftworld325@gmail.com?subject=${subject}&body=${body}`;
-    const gmailIntent = `intent://compose?to=giftworld325@gmail.com&subject=${subject}&body=${body}#Intent;scheme=mailto;package=com.google.android.gm;end;`;
+    const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=kudsadeans@gmail.com&su=${subject}&body=${body}`;
+    const mailtoLink = `mailto:kudsadeans@gmail.com?subject=${subject}&body=${body}`;
+    const gmailIntent = `intent://compose?to=kudsadeans@gmail.com&subject=${subject}&body=${body}#Intent;scheme=mailto;package=com.google.android.gm;end;`;
   
     if (/Android/i.test(navigator.userAgent)) {
       window.location.href = gmailIntent;
