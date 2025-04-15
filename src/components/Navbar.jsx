@@ -45,12 +45,12 @@ const Navbar = () => {
               Home
             </Link>
            
-            <Link
+            {/* <Link
               to="/members"
               className="font-montserrat font-medium text-[15px]  inline-flex items-center px-1 pt-1 text-gray-700 hover:text-orange-500 transition-colors focus:outline-none"
             >
               Members
-            </Link>
+            </Link> */}
             <Link
               to="/services"
               className="font-montserrat font-medium text-[15px]  inline-flex items-center px-1 pt-1 text-gray-700 hover:text-orange-500 transition-colors focus:outline-none"
@@ -84,13 +84,13 @@ onClick={() => setIsMenuOpen((prev) => !prev)}
             >
               Services
             </Link>
-            <Link
+            {/* <Link
               to="/members"
               className="font-montserrat font-medium text-[15px]  inline-flex items-center px-1 pt-1 text-gray-700 hover:text-orange-500 transition-colors focus:outline-none"
 onClick={() => setIsMenuOpen((prev) => !prev)}
             >
               Members
-            </Link>
+            </Link> */}
             <Link
               to="/contact"
               className=" font-montserrat font-medium text-[15px]  inline-flex items-center px-1 pt-1 text-gray-700 hover:text-orange-500 transition-colors focus:outline-none"

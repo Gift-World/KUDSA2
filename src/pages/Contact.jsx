@@ -2,28 +2,71 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { useState } from 'react';
+// import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
+import { Send } from 'lucide-react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 const Contact = () => {
   const formRef = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    emailjs.sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      formRef.current,
-      'YOUR_PUBLIC_KEY'
-    )
-    .then(() => {
-      alert('Thank you for your message! We will get back to you soon.');
-      e.target.reset();
-    })
-    .catch(() => {
-      alert('Something went wrong. Please try again later.');
-    });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null); // Store hCaptcha response
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!captchaToken) {
+        toast.error("Please complete the hCaptcha verification.");
+        return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+        const response = await fetch('https://contact-backend-acbnode.onrender.com/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                message: formData.message
+            }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            toast.success('Message sent successfully!');
+            setFormData({ name: '', email: '', message: '' });
+            setCaptchaToken(null); // Reset CAPTCHA
+        } else {
+            toast.error('Failed to send message. Please try again.');
+        }
+    } catch (error) {
+        console.error(error);
+        toast.error('Error sending message.');
+    } finally {
+        setIsSubmitting(false);
+    }
+};
+ 
   return (
     <div className="min-h-screen pt-20 pb-12 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -70,59 +113,55 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white rounded-lg p-8 shadow-lg"
-            >
-              <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
-              
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="user_name"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
+            <div className="w-[400px]">
+      <h3 className="font-poppins text-2xl font-semibold text-customOrange mb-4 text-center">
+        Send us a Message
+      </h3>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Your Name"
+          required
+          className="w-full px-4 py-2 bg-white border border-gray-700 rounded-lg text-black placeholder-gray-400"
+        />
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Your Email"
+          required
+          className="w-full px-4 py-2 bg-white border border-gray-700 rounded-lg text-black placeholder-gray-400"
+        />
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Your Message"
+          required
+          rows="4"
+          className="w-full px-4 py-2 bg-white border border-gray-700 rounded-lg text-black placeholder-gray-400 resize-none"
+        />
+        
+        {/* hCaptcha Integration */}
+        <HCaptcha
+          sitekey="0dd82172-4c0c-4216-936a-6796ff3c8dfe" // Replace with your hCaptcha site key
+          onVerify={(token) => setCaptchaToken(token)}
+        />
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="user_email"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    rows="4"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary transition-colors duration-300"
-                >
-                  Send Message
-                </button>
-              </form>
-            </motion.div>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-blue-500 border-gray-700 hover:bg-white text-black font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2"
+        >
+          {isSubmitting ? 'Sending...' : <>Send Message <Send size={18} /></>}
+        </button>
+      </form>
+      <Toaster position="bottom-center" />
+    </div>
           </div>
         </motion.div>
       </div>

@@ -4,9 +4,9 @@ import { useInView } from 'react-intersection-observer';
 
 const stats = [
   { value: 50, label: 'Universities', suffix: '+' },
-  { value: 120000, label: 'Students Impacted', suffix: 'k+' },
+  { value: 120000, label: 'Students Impacted', suffix: '+' },
   { value: 100, label: 'Programs', suffix: '+' },
-  { value: 25, label: 'Years of Excellence', suffix: '' }
+  { value: 10, label: 'Years of Excellence', suffix: '' }
 ];
 
 const Stats = () => {
