@@ -38,7 +38,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-        const response = await fetch('#', {
+        const response = await fetch('https://kudsa-backend.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
