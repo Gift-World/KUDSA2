@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { useState } from 'react';
 // import emailjs from '@emailjs/browser';
@@ -9,7 +7,6 @@ import { Send } from 'lucide-react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 const Contact = () => {
-  const formRef = useRef();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -38,7 +35,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-        const response = await fetch('https://kudsa-backend.onrender.com', {
+        const response = await fetch('https://kudsa-backend.onrender.com/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
