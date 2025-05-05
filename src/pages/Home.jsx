@@ -92,7 +92,7 @@ const Home = () => {
       </Swiper>
       <About2 />
       <Poster />
-      <Services />
+      {/* <Services /> */}
       <Stats />
       <About />
       <Membership />
