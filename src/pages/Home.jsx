@@ -90,8 +90,9 @@ const Home = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <About2 />
       <Poster />
+      <About2 />
+     
       {/* <Services /> */}
       <Stats />
       <About />
