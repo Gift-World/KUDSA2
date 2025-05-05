@@ -11,6 +11,7 @@ import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
+import Poster from '../components/Poster';
 
 const bannerImages = [
   // {
@@ -90,6 +91,8 @@ const Home = () => {
         ))}
       </Swiper>
       <About2 />
+      <Poster />
+      <Services />
       <Stats />
       <About />
       <Membership />

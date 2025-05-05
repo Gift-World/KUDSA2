@@ -12,6 +12,9 @@ export default {
         accent: '#FFA500',
         textPrimary: "#ccd6f6",
         textSecondary: "#8892b0",
+        'kudsa-red': '#ff0000',
+        'kudsa-green': '#006400',
+        'kudsa-gold': '#ffa500',
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'], // Default font
@@ -19,6 +22,8 @@ export default {
       },
       animation: {
         shine: 'shine 1.5s ease-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         shine: {
