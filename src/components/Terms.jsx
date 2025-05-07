@@ -1,5 +1,4 @@
 
-import { Link } from 'react-router-dom';
 
 function Terms() {
   return (
@@ -10,7 +9,7 @@ function Terms() {
         <div className="prose prose-lg">
           <h2 className="text-2xl font-semibold mb-4">1. ABSTRACT</h2>
           <p className="mb-6">
-            Between 15- - 300 words typed in 'Times new Roman' font 12 with 1.5 line spacing.
+            Between 15 - 300 words typed in 'Times new Roman' font 12 with 1.5 line spacing.
           </p>
 
           <h2 className="text-2xl font-semibold mb-4">2. LENGTH OF PAPER</h2>

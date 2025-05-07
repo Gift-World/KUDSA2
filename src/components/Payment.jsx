@@ -102,7 +102,7 @@ Account Number For Payment.     </h2>
             whileTap={{ scale: 0.9 }}
             target="_blank"
           >
-            Click here to Submit Abstract Form 
+            Click here for Abstract Submission Form 
           </motion.a>
         </motion.div>
       </section>
