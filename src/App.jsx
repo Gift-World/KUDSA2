@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Members from './pages/Members';
 import ContactForm from './components/ContactForm';
 import Services from './components/Services';
+import Terms from './components/Terms';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -21,6 +22,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/members" element={<Members />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/submission-guidelines" element={<Terms />} />
           </Routes>
           {showForm && <ContactForm setShowForm={setShowForm} />}
         </main>

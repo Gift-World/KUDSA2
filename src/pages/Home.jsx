@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation } from 'swiper/modules';
 import About from '../components/About';
-import Services from '../components/Services';
 import About2 from '../components/About2';
 import Stats from '../components/Stats';
 import Membership from '../components/Membership';
@@ -12,6 +12,8 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import Poster from '../components/Poster';
+import Payment from '../components/Payment';
+// import Terms from '../components/Terms';
 
 const bannerImages = [
   // {
@@ -91,6 +93,26 @@ const Home = () => {
         ))}
       </Swiper>
       <Poster />
+      <section id="apply" className="py-20 px-4  md:px-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Link
+            to="/submission-guidelines"
+            className="inline-block font-poppins bg-blue-500 text-white px-8 py-4 rounded-full text-xl font-bold hover:shadow-lg transform hover:scale-105 transition duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            
+          >
+            Click here for Submission Guidelines 
+          </Link>
+        </motion.div>
+      </section>
+      {/* <Terms /> */}
+      <Payment />
+     
       <About2 />
      
       {/* <Services /> */}
