@@ -12,6 +12,8 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import Poster from '../components/Poster';
+import Payment from '../components/Payment';
+import Terms from '../components/Terms';
 
 const bannerImages = [
   // {
@@ -91,6 +93,9 @@ const Home = () => {
         ))}
       </Swiper>
       <Poster />
+      <Terms />
+      <Payment />
+     
       <About2 />
      
       {/* <Services /> */}
