@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import posterImage from '../assets/kudsa.png';
+import posterImage from '../assets/poster.jpeg';
 
 const ConferencePoster = () => {
   const [expanded, setExpanded] = useState(false);
