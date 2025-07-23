@@ -13,6 +13,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import Poster from '../components/Poster';
 import Payment from '../components/Payment';
+import Abstracts from "../components/Abstracts.jsx";
 // import Terms from '../components/Terms';
 
 const bannerImages = [
@@ -112,6 +113,7 @@ const Home = () => {
       </section>
       {/* <Terms /> */}
       <Payment />
+        <Abstracts/>
      
       <About2 />
      
